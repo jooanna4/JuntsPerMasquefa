@@ -1,3 +1,11 @@
+:root {
+  --colorJunts: #00D6C2;
+  --colorJuntsLila: #CC5A98;
+  --colorFosc: #0B1722;
+  --colorGrisClar: #E6E6E6;
+  --colorBlanc: #FFFFFF;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -5,12 +13,25 @@ body {
 
 h1 {
   padding: 8px;
-  background: rgba(0,195,178,255);
+  background: var(--colorJunts);
   border-radius: 8px;
   margin: 0;
   margin-top: 400px;
   font-size: 64px;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 p {
@@ -30,9 +51,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Banner */
+/* foto_presentacio */
 
-#banner {
+#foto_presentacio {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -47,7 +68,7 @@ a:hover {
   color: white;
 }
 
-#banner h3 {
+#foto_presentacio h3 {
   background: rgba(204,90,152,255);
   border-radius: 8px;
   padding: 0 24px;
@@ -109,7 +130,7 @@ nav ul {
   height: 80px;
 }
 
-#menu-icon {
+#icono_barra_lateral {
   height: 100%;
   font-size: 28px;
   padding: 0 4px;
@@ -118,13 +139,13 @@ nav ul {
   align-items: center;
 }
 
-#menu-icon :hover{
+#icono_barra_lateral :hover{
   cursor: pointer;
 }
 
-/* Slideout Menu */
+/* Barra lateral */
 
-#slideout-menu {
+#barra_lateral {
   display: none;
   background: rgba(204,90,152,255);
   z-index: 100;
@@ -137,16 +158,16 @@ nav ul {
   pointer-events:none;
 }
 
-#slideout-menu ul {
+#barra_lateral ul {
   list-style: none;
   padding: 0 32px;
 }
 
-#slideout-menu ul li {
+#barra_lateral ul li {
   padding: 8px;
 }
 
-#slideout-menu a {
+#barra_lateral a {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
   color: white;
@@ -435,11 +456,11 @@ footer #social-media-footer ul li:hover a .fa-facebook {
     display: none;
   }
 
-  #menu-icon {
+  #icono_barra_lateral {
     display: flex;
   }
 
-  #slideout-menu {
+  #barra_lateral {
     display: block;
   }
 
@@ -500,7 +521,7 @@ footer #social-media-footer ul li:hover a .fa-facebook {
     font-size: 48px;
   }
 
-  #banner h3 {
+  #foto_presentacio h3 {
     font-size: 20px;
   }
 
