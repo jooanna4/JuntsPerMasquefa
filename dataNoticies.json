@@ -1,0 +1,22 @@
+{
+  "noticies": [
+    {
+      "data": "Data",
+      "titol": "Titol noticia",
+      "resum_noticia": "Resum noticia",
+      "text_noticia": "Text noticia"
+    },
+    {
+      "data": "Data",
+      "titol": "Titol noticia",
+      "resum_noticia": "Resum noticia",
+      "text_noticia": "Text noticia"
+    }
+    {
+      "data": "Data",
+      "titol": "Titol noticia",
+      "resum_noticia": "Resum noticia",
+      "text_noticia": "Text noticia"
+    }
+  ]
+}
