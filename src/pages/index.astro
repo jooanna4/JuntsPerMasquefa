@@ -1,0 +1,74 @@
+---
+import { isJSDocUnknownType } from "typescript";
+import Card from "../components/cardnews.astro";
+
+const noticies = [
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Hola soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Hola soc Una",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "EEEiiiiiiiii soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Babbbbyyyyyyyyyy soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Notícies</title>
+	</head>
+	<body>
+		<div class="heading-container">
+			<a href="llistanoticies.html">
+				<h2 class="section-heading">Notícies</h2>
+			</a>
+		</div>
+
+		<div class="Cards">
+			{
+				noticies.map((noticia) => (
+					<Card
+						imatge={noticia.Imatge}
+						data={noticia.Data}
+						titol={noticia.Titol}
+						resum_noticia={noticia.Resum}
+						link={noticia.Link}
+					/>
+				))
+			}
+		</div>
+	</body>
+</html>
+
+<style>
+	.Cards {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+</style>

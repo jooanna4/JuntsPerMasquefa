@@ -1,0 +1,149 @@
+---
+interface Props {
+    imatge: string;
+    data: string;
+    titol: string;
+    resum_noticia: string;
+    link: string;
+}
+
+const { imatge, data, titol, resum_noticia, link } = Astro.props;
+---
+
+<div class="card">
+    <div class="card-image">
+        <img src={imatge} alt="Imatge de la notícia" />
+    </div>
+
+    <div class="card-description">
+        <p class="data">{data}</p>
+        <h3>{titol}</h3>
+        <p class="resumNoticia">{resum_noticia}</p>
+        <a href={link} class="btn-readmore">Llegeix</a>
+    </div>
+</div>
+
+
+<style>
+    :root {
+        --colorJunts: #00d6c2;
+        --colorJuntsLila: #cc5a98;
+        --colorFosc: #0b1722;
+        --colorGrisClar: #e6e6e6;
+        --colorBlanc: #ffffff;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    h1 {
+        padding: 8px;
+        background: var(--colorJunts);
+        border-radius: 8px;
+        margin: 0;
+        margin-top: 400px;
+        margin-bottom: 0px;
+        font-size: 64px;
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-family: "Roboto", sans-serif;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-family: "Roboto", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    h5 {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400; /* SemiBold */
+    }
+
+    p {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 1.5;
+    }
+
+    main {
+        margin: 0 auto;
+    }
+
+    a {
+        font-family: "Roboto", sans-serif;
+        text-decoration: none;
+        color: black;
+    }
+    /* Card */
+    .card {
+        width: 418px;
+        max-width: 418px;
+        display: inline-block;
+        flex-direction: column;
+        align-items: center;
+        margin: 8px;
+
+        border-radius: 12px;
+        background: var(--colorBlanc);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-image img {
+        height: 289px;
+        align-self: stretch;
+        border-radius: 12px 12px 0px 0px;
+        padding: none;
+    }
+
+    .card-description {
+        display: block;
+        padding: 0px 12px 12px 12px;
+        flex-direction: column;
+        justify-content: center;
+        align-self: flex-start;
+        border-radius: 12px;
+    }
+
+    .card-description h3 {
+        color: var(--colorJunts);
+    }
+
+    .data {
+        font-size: 12px;
+        color: var(--colorJuntsLila);
+    }
+
+    /* Button Read more */
+    .btn-readmore {
+        padding: 8px 24px;
+        border: 2px solid black;
+        border-radius: 0px 0px 0px 12px;
+        transition: 0.4s;
+        display: inline-block;
+        font-weight: bold;
+        cursor: pointer;
+        background: white;
+    }
+
+    .btn-readmore:hover {
+        background: var(--colorJunts);
+        text-decoration: none;
+        padding: 8px 64px 8px 24px;
+        border-radius: 0px 12px 12px 12px;
+    }
+</style>
