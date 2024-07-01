@@ -1,0 +1,102 @@
+---
+import { isJSDocUnknownType } from "typescript";
+import Card from "../components/cardnews.astro";
+import Layout from "../components/Layout.astro";
+
+const noticies = [
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Hola soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Hola soc Una",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "EEEiiiiiiiii soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Babbbbyyyyyyyyyy soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+	{
+		Imatge: "Una adreça",
+		Data: "13 de juny",
+		Titol: "Babbbbyyyyyyyyyy soc Jo",
+		Resum: "eieieeieieieieie",
+		Link: "Qualsevol",
+	},
+];
+---
+
+<Layout pageTitle="Noticies">
+	<div class="heading-container">
+		<a href="llistanoticies.html">
+			<h2 class="section-heading">Notícies</h2>
+		</a>
+	</div>
+
+	<div class="Cards">
+		{
+			noticies.map((noticia) => (
+				<Card
+					imatge={noticia.Imatge}
+					data={noticia.Data}
+					titol={noticia.Titol}
+					resum_noticia={noticia.Resum}
+					link={noticia.Link}
+				/>
+			))
+		}
+	</div>
+
+	<style>
+		.Cards {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.heading-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.heading-container a{
+			text-decoration: none;
+			color: black;
+		}
+
+		.section-heading {
+			display: block;
+			padding: 4px 32px;
+			margin: 8px;
+			margin-top: 28px;
+			margin-bottom: 20px;
+			border-left: 3px solid black;
+			border-right: 3px solid black;
+			transition: all 0.4s;
+			text-transform: uppercase;
+		}
+
+		.section-heading:hover {
+			padding: 4px 54px;
+			background: var(--colorJunts);
+		}
+	</style>
+</Layout>

@@ -1,0 +1,94 @@
+---
+interface Props {
+    pageTitle?: string;
+}
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+            integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab"
+            rel="stylesheet"
+        />
+        <title>Junts per Masquefa | {pageTitle}</title>
+    </head>
+    <body>
+        <slot />
+    </body>
+    <style>
+        :root {
+            --colorJunts: #00d6c2;
+            --colorJuntsLila: #cc5a98;
+            --colorFosc: #0b1722;
+            --colorGrisClar: #e6e6e6;
+            --colorBlanc: #ffffff;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            padding: 8px;
+            background: var(--colorJunts);
+            border-radius: 8px;
+            margin: 0;
+            margin-top: 400px;
+            margin-bottom: 0px;
+            font-size: 64px;
+            font-family: "Roboto", sans-serif;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-family: "Roboto", sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-family: "Roboto", sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        h5 {
+            font-family: "Roboto", sans-serif;
+            font-size: 14px;
+            font-weight: 400; /* SemiBold */
+        }
+
+        p {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        main {
+            margin: 0 auto;
+        }
+
+        a {
+            font-family: "Roboto", sans-serif;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</html>
