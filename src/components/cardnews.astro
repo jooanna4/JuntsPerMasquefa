@@ -25,8 +25,8 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
 
 <style>
     .card {
-        width: 418px;
-        max-width: 418px;
+        width: 318px;
+        max-width: 318px;
         display: inline-block;
         flex-direction: column;
         align-items: center;
@@ -38,7 +38,8 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
     }
 
     .card-image img {
-        height: 289px;
+        height: 220px;
+        width: 318px;
         align-self: stretch;
         border-radius: 12px 12px 0px 0px;
         padding: none;
@@ -49,7 +50,6 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
         padding: 0px 12px 12px 12px;
         flex-direction: column;
         justify-content: center;
-        align-self: flex-start;
         border-radius: 12px;
     }
 
@@ -57,8 +57,12 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
         color: var(--colorJunts);
     }
 
+    .card-description p {
+        text-align: justify;
+    }
+
     .data {
-        font-size: 12px;
+        font-size: 13px;
         color: var(--colorJuntsLila);
     }
 

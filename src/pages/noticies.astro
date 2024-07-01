@@ -3,61 +3,23 @@ import { isJSDocUnknownType } from "typescript";
 import Card from "../components/cardnews.astro";
 import Layout from "../components/Layout.astro";
 
-const noticies = [
-	{
-		Imatge: "Una adreça",
-		Data: "13 de juny",
-		Titol: "Hola soc Jo",
-		Resum: "eieieeieieieieie",
-		Link: "Qualsevol",
-	},
-	{
-		Imatge: "Una adreça",
-		Data: "13 de juny",
-		Titol: "Hola soc Una",
-		Resum: "eieieeieieieieie",
-		Link: "Qualsevol",
-	},
-	{
-		Imatge: "Una adreça",
-		Data: "13 de juny",
-		Titol: "EEEiiiiiiiii soc Jo",
-		Resum: "eieieeieieieieie",
-		Link: "Qualsevol",
-	},
-	{
-		Imatge: "Una adreça",
-		Data: "13 de juny",
-		Titol: "Babbbbyyyyyyyyyy soc Jo",
-		Resum: "eieieeieieieieie",
-		Link: "Qualsevol",
-	},
-	{
-		Imatge: "Una adreça",
-		Data: "13 de juny",
-		Titol: "Babbbbyyyyyyyyyy soc Jo",
-		Resum: "eieieeieieieieie",
-		Link: "Qualsevol",
-	},
-];
+const noticies = await Astro.glob("./noticies/*.md");
 ---
 
 <Layout pageTitle="Noticies">
 	<div class="heading-container">
-		<a href="llistanoticies.html">
-			<h2 class="section-heading">Notícies</h2>
-		</a>
+		<h2 class="section-heading">Notícies</h2>
 	</div>
 
 	<div class="Cards">
 		{
 			noticies.map((noticia) => (
 				<Card
-					imatge={noticia.Imatge}
-					data={noticia.Data}
-					titol={noticia.Titol}
-					resum_noticia={noticia.Resum}
-					link={noticia.Link}
+					imatge={noticia.frontmatter.image}
+					data={noticia.frontmatter.date}
+					titol={noticia.frontmatter.title}
+					resum_noticia={noticia.frontmatter.description}
+					link={noticia.url}
 				/>
 			))
 		}
@@ -66,8 +28,8 @@ const noticies = [
 	<style>
 		.Cards {
 			display: flex;
+			align-items: flex-start;
 			justify-content: center;
-			align-items: center;
 			flex-wrap: wrap;
 		}
 
@@ -77,9 +39,8 @@ const noticies = [
 			align-items: center;
 		}
 
-		.heading-container a{
-			text-decoration: none;
-			color: black;
+		.heading-container:hover {
+			cursor: pointer;
 		}
 
 		.section-heading {
