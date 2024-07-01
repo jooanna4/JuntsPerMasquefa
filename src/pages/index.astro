@@ -4,8 +4,45 @@ import Layout from "../components/Layout.astro";
 ---
 
 <Layout pageTitle="Inici">
-    <div id="foto_presentacio">
+    <div class="foto_presentacio">
         <h1>JUNTS PER MASQUEFA</h1>
         <h2>Pel teu futur</h2>
     </div>
+
+    <style>
+        .foto_presentacio {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            background: url("/foto-principal.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+            color: var(--colorBlanc);
+            margin-bottom: 24px;
+        }
+
+        .foto_presentacio h1 {
+            padding: 8px;
+            background: var(--colorJunts);
+            border-radius: 8px;
+            margin: 0;
+            margin-top: 400px;
+            margin-bottom: 0px;
+            font-size: 64px;
+            font-family: "Roboto", sans-serif;
+            font-weight: bold;
+        }
+
+        .foto_presentacio h2 {
+            background: var(--colorJuntsLila);
+            border-radius: 8px;
+            padding: 0 24px;
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
 </Layout>

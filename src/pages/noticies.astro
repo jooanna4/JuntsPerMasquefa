@@ -4,6 +4,7 @@ import Card from "../components/cardnews.astro";
 import Layout from "../components/Layout.astro";
 
 const noticies = await Astro.glob("./noticies/*.md");
+noticies.reverse();
 ---
 
 <Layout pageTitle="Noticies">
@@ -26,13 +27,6 @@ const noticies = await Astro.glob("./noticies/*.md");
 	</div>
 
 	<style>
-		.Cards {
-			display: flex;
-			align-items: flex-start;
-			justify-content: center;
-			flex-wrap: wrap;
-		}
-
 		.heading-container {
 			display: flex;
 			justify-content: center;
@@ -53,11 +47,24 @@ const noticies = await Astro.glob("./noticies/*.md");
 			border-right: 3px solid black;
 			transition: all 0.4s;
 			text-transform: uppercase;
+			
+            font-family: "Roboto", sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+        
 		}
 
 		.section-heading:hover {
 			padding: 4px 54px;
 			background: var(--colorJunts);
+		}
+
+		.Cards {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 30px;
 		}
 	</style>
 </Layout>
