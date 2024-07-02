@@ -1,11 +1,11 @@
 ---
 layout: ../../components/Layout.astro
 image: /foto-principal.jpg
-date: (editar)
-title: (editar)
+date: dataaa
+title: Noticia 4
 description: (editar)
 ---
-# Titol noticia
+# Hola xoxo
 
 ##  Holi
 
