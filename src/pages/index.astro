@@ -1,6 +1,11 @@
 ---
 import Card from "../components/cardnews.astro";
 import Layout from "../components/Layout.astro";
+import Heading from "../components/section-heading.astro";
+
+const noticies = await Astro.glob("./noticies/*.md");
+noticies.reverse();
+const ultimes3Noticies = noticies.slice(0, 3);
 ---
 
 <Layout pageTitle="Inici">
@@ -8,6 +13,28 @@ import Layout from "../components/Layout.astro";
         <h1>JUNTS PER MASQUEFA</h1>
         <h2>Pel teu futur</h2>
     </div>
+    <main>
+        <div class="heading-container">
+            <Heading nom="Notícies" />
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-button prev" id="prevButton">&lt;</button>
+            <section class="Cards" id="cardsContainer">
+                {
+                    ultimes3Noticies.map((noticia) => (
+                        <Card
+                            imatge={noticia.frontmatter.image}
+                            data={noticia.frontmatter.date}
+                            titol={noticia.frontmatter.title}
+                            resum_noticia={noticia.frontmatter.description}
+                            link={noticia.url}
+                        />
+                    ))
+                }
+            </section>
+            <button class="carousel-button next" id="nextButton">&gt;</button>
+        </div>
+    </main>
 
     <style>
         .foto_presentacio {
@@ -45,5 +72,65 @@ import Layout from "../components/Layout.astro";
             font-size: 32px;
             font-family: "Roboto", sans-serif;
         }
+
+        .heading-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .Cards {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center; /* Alinear elementos al principio */
+            flex-wrap: wrap; /* Impedir que los elementos se envuelvan */
+            gap: 30px;
+        }
+
+
+        .carousel-button.prev {
+            left: 0;
+        }
+
+        .carousel-button.next {
+            right: 0;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const cardsContainer = document.getElementById('cardsContainer');
+            const carouselContainer = document.querySelector('.carousel-container');
+            
+            const updateButtonsVisibility = () => {
+                const scrollWidth = cardsContainer.scrollWidth;
+                const clientWidth = cardsContainer.clientWidth;
+    
+                if (scrollWidth > clientWidth) {
+                    prevButton.style.display = 'block';
+                    nextButton.style.display = 'block';
+                } else {
+                    prevButton.style.display = 'none';
+                    nextButton.style.display = 'none';
+                }
+            };
+    
+            prevButton.addEventListener('click', () => {
+                cardsContainer.scrollBy({
+                    left: -cardsContainer.clientWidth,
+                    behavior: 'smooth'
+                });
+            });
+    
+            nextButton.addEventListener('click', () => {
+                cardsContainer.scrollBy({
+                    left: cardsContainer.clientWidth,
+                    behavior: 'smooth'
+                });
+            });
+    
+            window.addEventListener('resize', updateButtonsVisibility);
+            updateButtonsVisibility(); // Initial check
+        });
+    </script>    
 </Layout>
