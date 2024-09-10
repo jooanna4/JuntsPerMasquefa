@@ -17,23 +17,20 @@ const ultimes3Noticies = noticies.slice(0, 3);
         <div class="heading-container">
             <Heading nom="Notícies" />
         </div>
-        <div class="carousel-container">
-            <button class="carousel-button prev" id="prevButton">&lt;</button>
-            <section class="Cards" id="cardsContainer">
-                {
-                    ultimes3Noticies.map((noticia) => (
-                        <Card
-                            imatge={noticia.frontmatter.image}
-                            data={noticia.frontmatter.date}
-                            titol={noticia.frontmatter.title}
-                            resum_noticia={noticia.frontmatter.description}
-                            link={noticia.url}
-                        />
-                    ))
-                }
-            </section>
-            <button class="carousel-button next" id="nextButton">&gt;</button>
-        </div>
+        
+        <section class="Cards">
+            {
+                ultimes3Noticies.map((noticia) => (
+                    <Card
+                        imatge={noticia.frontmatter.image}
+                        data={noticia.frontmatter.date}
+                        titol={noticia.frontmatter.title}
+                        resum_noticia={noticia.frontmatter.description}
+                        link={noticia.url}
+                    />
+                ))
+            }
+        </section>
     </main>
 
     <style>
@@ -61,7 +58,6 @@ const ultimes3Noticies = noticies.slice(0, 3);
             margin-top: 400px;
             margin-bottom: 0px;
             font-size: 64px;
-            font-family: "Roboto", sans-serif;
             font-weight: bold;
         }
 
@@ -69,8 +65,6 @@ const ultimes3Noticies = noticies.slice(0, 3);
             background: var(--colorJuntsLila);
             border-radius: 8px;
             padding: 0 24px;
-            font-size: 32px;
-            font-family: "Roboto", sans-serif;
         }
 
         .heading-container {
@@ -95,42 +89,4 @@ const ultimes3Noticies = noticies.slice(0, 3);
             right: 0;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const prevButton = document.getElementById('prevButton');
-            const nextButton = document.getElementById('nextButton');
-            const cardsContainer = document.getElementById('cardsContainer');
-            const carouselContainer = document.querySelector('.carousel-container');
-            
-            const updateButtonsVisibility = () => {
-                const scrollWidth = cardsContainer.scrollWidth;
-                const clientWidth = cardsContainer.clientWidth;
-    
-                if (scrollWidth > clientWidth) {
-                    prevButton.style.display = 'block';
-                    nextButton.style.display = 'block';
-                } else {
-                    prevButton.style.display = 'none';
-                    nextButton.style.display = 'none';
-                }
-            };
-    
-            prevButton.addEventListener('click', () => {
-                cardsContainer.scrollBy({
-                    left: -cardsContainer.clientWidth,
-                    behavior: 'smooth'
-                });
-            });
-    
-            nextButton.addEventListener('click', () => {
-                cardsContainer.scrollBy({
-                    left: cardsContainer.clientWidth,
-                    behavior: 'smooth'
-                });
-            });
-    
-            window.addEventListener('resize', updateButtonsVisibility);
-            updateButtonsVisibility(); // Initial check
-        });
-    </script>    
 </Layout>
