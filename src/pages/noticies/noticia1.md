@@ -7,7 +7,7 @@ description: (editar)
 ---
 # Titol noticia
 
-##  Holi
+## Holi
 
 ### Eieeieiei
 
