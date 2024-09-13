@@ -1,145 +1,218 @@
 ---
 interface Props {
-    pageTitle?: string;
+  pageTitle?: string;
 }
 const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-            integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-            crossorigin="anonymous"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab"
-            rel="stylesheet"
-        />
-        <title>Junts per Masquefa | {pageTitle}</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab"
+      rel="stylesheet"
+    />
+    <title>Junts per Masquefa | {pageTitle}</title>
+  </head>
 
-    <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
-    <div id="barra_lateral">
-        <ul>
-            <li>
-                <a href="../pages/index.astro">Inici</a>
-            </li>
-            <li>
-                <a href="../pages/noticies.astro">Notícies</a>
-            </li>
-            <li>
-                <a href="">Articles d'opinió</a>
-            </li>
-            <li>
-                <a href="">Cronologia</a>
-            </li>
-            <li>
-                <a href="">El nostre equip</a>
-            </li>
-        </ul>
+  <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
+  <div id="barra_lateral">
+    <ul>
+      <li>
+        <a href="../pages/index.astro">Inici</a>
+      </li>
+      <li>
+        <a href="../pages/noticies.astro">Notícies</a>
+      </li>
+      <li>
+        <a href="">Articles d'opinió</a>
+      </li>
+      <li>
+        <a href="">Cronologia</a>
+      </li>
+      <li>
+        <a href="">El nostre equip</a>
+      </li>
+    </ul>
+  </div>
+
+  <nav>
+    <div id="logo-img">
+      <a href="../pages/index.astro">
+        <img src="../../public/logo.png" alt="Logo JUNTS PER MASQUEFA" />
+      </a>
     </div>
 
-    <nav>
-        <div id="logo-img">
-            <a href="../pages/index.astro">
-                <img src="../../public/logo.png" alt="Logo JUNTS PER MASQUEFA">
-            </a>
-        </div>
+    <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
+    <div id="icono_barra_lateral">
+      <i class="fas fa-bars"></i>
+    </div>
 
-        <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
-        <div id="icono_barra_lateral">
-            <i class="fas fa-bars"></i>
-        </div>
-        
-        <!-- NAVEGADOR PREDETERMINAT -->
-        <ul>
-            <li>
-                <a class="active" href="../pages/index.astro">Inici</a>
-            </li>
-            <li>
-                <a href="../pages/noticies.astro">Notícies</a>
-            </li>
-            <li>
-                <a href="">Articles d'opinió</a>
-            </li>
-            <li>
-                <a href="">Cronologia</a>
-            </li>
-            <li>
-                <a href="">Equip</a>
-            </li>
-        </ul>
-    </nav>
+    <!-- NAVEGADOR PREDETERMINAT -->
+    <ul>
+      <li>
+        <a href="../pages/index.astro">Inici</a>
+      </li>
+      <li>
+        <a href="../pages/noticies.astro">Notícies</a>
+      </li>
+      <li>
+        <a href="">Articles d'opinió</a>
+      </li>
+      <li>
+        <a href="">Cronologia</a>
+      </li>
+      <li>
+        <a href="">Equip</a>
+      </li>
+    </ul>
+  </nav>
+
+  <body>
+    <slot />
+  </body>
+
+  <style is:global>
+    :root {
+      --colorJunts: #00c3b2;
+      --colorJuntsLila: #cc5a98;
+      --colorFosc: #0b1722;
+      --colorGrisClar: #e6e6e6;
+      --colorBlanc: #ffffff;
+    }
+
+    body {
+      margin: 0px 50px;
+    }
+
+    h1 {
+      font-family: "Roboto", sans-serif;
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-family: "Roboto", sans-serif;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    h3 {
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    h4 {
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    h5 {
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 400; /* SemiBold */
+    }
+
+    p {
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    main {
+      margin: 0 auto;
+    }
+
+    a {
+      font-family: "Roboto", sans-serif;
+      text-decoration: none;
+      color: black;
+    }
+
+    #icono_barra_lateral {
+      height: 100%;
+      font-size: 28px;
+      padding: 0 32px;
+      color: var(--colorJunts);
+      display: none;
+      align-items: center;
+    }
+
+    #icono_barra_lateral :hover {
+      cursor: pointer;
+    }
+
+    /* Barra lateral */
+
+    #barra_lateral {
+      display: none;
+      background: var(--colorJuntsLila);
+      z-index: 100;
+      position: fixed;
+      transition: 0.4s;
+      margin-top: 96px;
+      width: 100%;
+      text-align: right;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #barra_lateral ul {
+      list-style: none;
+      padding: 0 32px;
+    }
+
+    #barra_lateral ul li {
+      padding: 8px;
+    }
+
+    #barra_lateral a {
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    #logo-img {
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    transition: 0.4s;
+    }
+
+    #logo-img img {
+    height: 80px;
+    width: 80px;
+    }
+  </style>
+
+  <script>
+    // BARRA LATERAL
+    const menuIcon = document.getElementById("icono_barra_lateral");
+    const barraLateral = document.getElementById("barra_lateral");
+
+    menuIcon.addEventListener("click", function () {
+      if (barraLateral.style.opacity == "1") {
+        barraLateral.style.opacity = "0";
+        barraLateral.style.pointerEvents = "none";
+      } else {
+        barraLateral.style.opacity = "1";
+        barraLateral.style.pointerEvents = "auto";
+      }
+    });
+  </script>
 
 
-    <body>
-        <slot />
-    </body>
-
-    <style is:global>
-        :root {
-            --colorJunts: #00C3B2;
-            --colorJuntsLila: #cc5a98;
-            --colorFosc: #0b1722;
-            --colorGrisClar: #e6e6e6;
-            --colorBlanc: #ffffff;
-        }
-
-        body {
-            margin: 0px 50px;
-        }
-
-        h1 {
-            font-family: "Roboto", sans-serif;
-            font-size: 42px;
-            font-weight: bold;
-        }
-
-        h2 {
-            font-family: "Roboto", sans-serif;
-            font-size: 32px;
-            font-weight: bold;
-        }
-
-        h3 {
-            font-family: "Roboto", sans-serif;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        h4 {
-            font-family: "Roboto", sans-serif;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        h5 {
-            font-family: "Roboto", sans-serif;
-            font-size: 14px;
-            font-weight: 400; /* SemiBold */
-        }
-
-        p {
-            font-family: "Roboto", sans-serif;
-            font-size: 18px;
-            font-weight: normal;
-            line-height: 1.5;
-            text-align: justify;
-        }
-
-        main {
-            margin: 0 auto;
-        }
-
-        a {
-            font-family: "Roboto", sans-serif;
-            text-decoration: none;
-            color: black;
-        }
-    </style>
 </html>
