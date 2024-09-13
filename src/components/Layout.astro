@@ -22,6 +22,61 @@ const { pageTitle } = Astro.props;
         />
         <title>Junts per Masquefa | {pageTitle}</title>
     </head>
+
+    <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
+    <div id="barra_lateral">
+        <ul>
+            <li>
+                <a href="../pages/index.astro">Inici</a>
+            </li>
+            <li>
+                <a href="../pages/noticies.astro">Notícies</a>
+            </li>
+            <li>
+                <a href="">Articles d'opinió</a>
+            </li>
+            <li>
+                <a href="">Cronologia</a>
+            </li>
+            <li>
+                <a href="">El nostre equip</a>
+            </li>
+        </ul>
+    </div>
+
+    <nav>
+        <div id="logo-img">
+            <a href="../pages/index.astro">
+                <img src="../../public/logo.png" alt="Logo JUNTS PER MASQUEFA">
+            </a>
+        </div>
+
+        <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
+        <div id="icono_barra_lateral">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <!-- NAVEGADOR PREDETERMINAT -->
+        <ul>
+            <li>
+                <a class="active" href="../pages/index.astro">Inici</a>
+            </li>
+            <li>
+                <a href="../pages/noticies.astro">Notícies</a>
+            </li>
+            <li>
+                <a href="">Articles d'opinió</a>
+            </li>
+            <li>
+                <a href="">Cronologia</a>
+            </li>
+            <li>
+                <a href="">Equip</a>
+            </li>
+        </ul>
+    </nav>
+
+
     <body>
         <slot />
     </body>
