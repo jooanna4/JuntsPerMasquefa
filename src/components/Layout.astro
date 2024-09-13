@@ -27,7 +27,7 @@ const { pageTitle } = Astro.props;
   <div id="barra_lateral">
     <ul>
       <li>
-        <a href="/index">Inici</a>
+        <a href="/">Inici</a>
       </li>
       <li>
         <a href="/noticies">Notícies</a>
@@ -59,7 +59,7 @@ const { pageTitle } = Astro.props;
     <!-- NAVEGADOR PREDETERMINAT -->
     <ul>
       <li>
-        <a href="/index">Inici</a>
+        <a href="/">Inici</a>
       </li>
       <li>
         <a href="/noticies">Notícies</a>
@@ -78,6 +78,22 @@ const { pageTitle } = Astro.props;
   
   <body>
     <slot />
+
+    <script>
+      // BARRA LATERAL
+      const menuIcon = document.getElementById("icono_barra_lateral");
+      const barraLateral = document.getElementById("barra_lateral");
+  
+      menuIcon.addEventListener("click", function () {
+        if (barraLateral.style.opacity == "1") {
+          barraLateral.style.opacity = "0";
+          barraLateral.style.pointerEvents = "none";
+        } else {
+          barraLateral.style.opacity = "1";
+          barraLateral.style.pointerEvents = "auto";
+        }
+      });
+    </script>
   </body>
 
   <style is:global>
@@ -141,6 +157,56 @@ const { pageTitle } = Astro.props;
       color: black;
     }
 
+    /* Navigation */
+
+    nav {
+      position: fixed;
+      width: 100%;
+      padding: 8px 0px;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--colorBlanc);
+      display: flex;
+      box-sizing: border-box;
+      z-index: 100;
+      margin-left: -50px;
+      margin-top: 0;
+
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    nav a {
+      padding: 0 32px;
+      color: var(--colorJunts);
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: 0.4s;
+    }
+
+    nav a:hover {
+      text-decoration: none;
+      color: var(--colorJuntsLila);
+      font-weight: 900;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      align-items: flex-start;
+      height: 100%;
+      margin: 0;
+    }
+
+    .active {
+      color: var(--colorJuntsLila);
+      font-weight: 900;
+    }
+
     #icono_barra_lateral {
       height: 100%;
       font-size: 28px;
@@ -198,21 +264,7 @@ const { pageTitle } = Astro.props;
     }
   </style>
 
-  <script>
-    // BARRA LATERAL
-    const menuIcon = document.getElementById("icono_barra_lateral");
-    const barraLateral = document.getElementById("barra_lateral");
-
-    menuIcon.addEventListener("click", function () {
-      if (barraLateral.style.opacity == "1") {
-        barraLateral.style.opacity = "0";
-        barraLateral.style.pointerEvents = "none";
-      } else {
-        barraLateral.style.opacity = "1";
-        barraLateral.style.pointerEvents = "auto";
-      }
-    });
-  </script>
+  
 
 
 </html>
