@@ -16,7 +16,7 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
     </div>
 
     <div class="card-description">
-        <p class="data">{data}</p>
+        <h5>{data}</h5>
         <h3>{titol}</h3>
         <p class="resumNoticia">{resum_noticia}</p>
         <a href={link} class="btn-readmore">Llegeix</a>
@@ -30,7 +30,7 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
         display: inline-block;
         flex-direction: column;
         align-items: center;
-        margin: 8px;
+        margin: 0px;
 
         border-radius: 12px;
         background: var(--colorBlanc);

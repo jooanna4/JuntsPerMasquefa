@@ -23,37 +23,11 @@ const { pageTitle } = Astro.props;
     <title>Junts per Masquefa | {pageTitle}</title>
   </head>
 
-  <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
-  <div id="barra_lateral">
-    <ul>
-      <li>
-        <a href="/">Inici</a>
-      </li>
-      <li>
-        <a href="/noticies">Notícies</a>
-      </li>
-      <li>
-        <a href="">Articles d'opinió</a>
-      </li>
-      <li>
-        <a href="">Cronologia</a>
-      </li>
-      <li>
-        <a href="">El nostre equip</a>
-      </li>
-    </ul>
-  </div>
-
   <nav>
     <div id="logo-img">
-      <a href="../pages/index.astro">
+      <a href="/">
         <img src="../../public/logo.png" alt="Logo JUNTS PER MASQUEFA" />
       </a>
-    </div>
-
-    <!-- NAVEGADOR QUAN LA PANTALLA ÉS PETITA -->
-    <div id="icono_barra_lateral">
-      <i class="fas fa-bars"></i>
     </div>
 
     <!-- NAVEGADOR PREDETERMINAT -->
@@ -78,22 +52,6 @@ const { pageTitle } = Astro.props;
   
   <body>
     <slot />
-
-    <script>
-      // BARRA LATERAL
-      const menuIcon = document.getElementById("icono_barra_lateral");
-      const barraLateral = document.getElementById("barra_lateral");
-  
-      menuIcon.addEventListener("click", function () {
-        if (barraLateral.style.opacity == "1") {
-          barraLateral.style.opacity = "0";
-          barraLateral.style.pointerEvents = "none";
-        } else {
-          barraLateral.style.opacity = "1";
-          barraLateral.style.pointerEvents = "auto";
-        }
-      });
-    </script>
   </body>
 
   <style is:global>
@@ -106,19 +64,22 @@ const { pageTitle } = Astro.props;
     }
 
     body {
-      margin: 0px 50px;
+      margin: 0px 60px;
+      margin-top: 120px;
     }
 
     h1 {
       font-family: "Roboto", sans-serif;
       font-size: 42px;
       font-weight: bold;
+      text-align: justify;
     }
 
     h2 {
       font-family: "Roboto", sans-serif;
       font-size: 32px;
       font-weight: bold;
+      text-align: justify;
     }
 
     h3 {
@@ -137,6 +98,7 @@ const { pageTitle } = Astro.props;
       font-family: "Roboto", sans-serif;
       font-size: 14px;
       font-weight: 400; /* SemiBold */
+      color: var(--colorJuntsLila);
     }
 
     p {
@@ -160,6 +122,8 @@ const { pageTitle } = Astro.props;
     /* Navigation */
 
     nav {
+      top: 0;
+      left: 0;
       position: fixed;
       width: 100%;
       padding: 8px 0px;
@@ -169,8 +133,6 @@ const { pageTitle } = Astro.props;
       display: flex;
       box-sizing: border-box;
       z-index: 100;
-      margin-left: -50px;
-      margin-top: 0;
 
       font-family: "Roboto", sans-serif;
       font-size: 16px;
