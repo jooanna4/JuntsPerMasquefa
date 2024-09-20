@@ -2,6 +2,7 @@
 import Card from "../components/cardnews.astro";
 import Layout from "../components/Layout.astro";
 import Heading from "../components/section-heading.astro";
+import Regidor from "../components/aboutCard.astro";
 
 const noticies = await Astro.glob("./noticies/*.md");
 noticies.reverse();
@@ -31,6 +32,16 @@ const ultimes3Noticies = noticies.slice(0, 3);
                 ))
             }
         </section>
+
+        <div class="heading-container">
+            <a href="/noticies"> <Heading nom="Regidors" /> </a>
+        </div>
+        <Regidor
+            nom = "Joana Bruguera"
+            imatge="../../public/Joana_Bruguera_Alegre.png"
+            num_llista={4}
+        />
+
     </main>
 
     <style>
