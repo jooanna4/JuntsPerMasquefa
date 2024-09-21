@@ -36,11 +36,33 @@ const ultimes3Noticies = noticies.slice(0, 3);
         <div class="heading-container">
             <a href="/noticies"> <Heading nom="Regidors" /> </a>
         </div>
-        <Regidor
-            nom = "Joana Bruguera"
-            imatge="../../public/Joana_Bruguera_Alegre.png"
-            num_llista={4}
-        />
+        <section class="Regidors">
+            <Regidor
+                nom="Xavier Boquete i Saiz"
+                imatge="../../public/Xavier_Boquete_Saiz.png"
+                num_llista={1}
+            />
+            <Regidor
+                nom="Elena Fernández Fernández"
+                imatge="../../public/Elena_Fernandez_Fernandez.png"
+                num_llista={2}
+            />
+            <Regidor
+                nom="Enrique Gómez Milan"
+                imatge="../../public/Enrique_Gomez_Milan.png"
+                num_llista={3}
+            />
+            <Regidor
+                nom = "Joana Bruguera"
+                imatge="../../public/Joana_Bruguera_Alegre.png"
+                num_llista={4}
+            />
+            <Regidor
+                nom="Carles Mernissi i Coarasa"
+                imatge="../../public/Carles_Mernissi_Coarasa.png"
+                num_llista={5}
+            />
+        </section>
 
     </main>
 
@@ -58,7 +80,6 @@ const ultimes3Noticies = noticies.slice(0, 3);
             background-position: center;
             background-blend-mode: overlay;
             color: var(--colorBlanc);
-            margin-bottom: 24px;
             margin-left: -60px;
             margin-right: -60px;
             margin-top: -20px;
@@ -86,6 +107,8 @@ const ultimes3Noticies = noticies.slice(0, 3);
         .heading-container {
             display: flex;
             justify-content: center;
+            margin-top: 24px;
+            margin-bottom: 24px;
         }
 
         .Cards {
@@ -96,12 +119,12 @@ const ultimes3Noticies = noticies.slice(0, 3);
             gap: 30px;
         }
 
-        .carousel-button.prev {
-            left: 0;
-        }
-
-        .carousel-button.next {
-            right: 0;
+        .Regidors {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
         }
     </style>
 </Layout>
