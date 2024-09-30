@@ -10,12 +10,7 @@ const { pageTitle } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab"
       rel="stylesheet"
@@ -53,6 +48,15 @@ const { pageTitle } = Astro.props;
   <body>
     <slot />
   </body>
+
+  <footer>
+    <a href="https://www.facebook.com" target="_blank">   <!-- target = com s'obrirà la pestanya al navegador, _blank és que s'obrirà en una pestanya nova -->
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </footer>
 
   <style is:global>
     :root {
@@ -223,6 +227,11 @@ const { pageTitle } = Astro.props;
     #logo-img img {
     height: 80px;
     width: 80px;
+    }
+
+    /*  FOOTER  */
+    footer {
+
     }
   </style>
 </html>
