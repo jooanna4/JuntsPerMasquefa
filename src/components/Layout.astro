@@ -34,7 +34,7 @@ const { pageTitle } = Astro.props;
         <a href="/noticies">Notícies</a>
       </li>
       <li>
-        <a href="">Articles d'opinió</a>
+        <a href="/articles_opinio">Articles d'opinió</a>
       </li>
       <li>
         <a href="">Cronologia</a>
@@ -92,6 +92,7 @@ const { pageTitle } = Astro.props;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
       font-weight: bold;
+      text-align: justify;
     }
 
     h4 {
@@ -123,6 +124,15 @@ const { pageTitle } = Astro.props;
       font-family: "Roboto", sans-serif;
       text-decoration: none;
       color: black;
+    }
+
+    blockquote {
+      font-style: italic;        /* Cambia la fuente a cursiva */
+      background-color: var(--colorGrisClar); /* Añade un color de fondo suave */
+      border-left: 4px solid var(--colorJuntsLila); /* Añade una barra a la izquierda */
+      padding: 6px 20px;         /* Añade espacio interno */
+      margin: 8px 0;             /* Añade espacio externo */
+      color: var(--colorFosc);                /* Cambia el color del texto */
     }
 
     /* Navigation */

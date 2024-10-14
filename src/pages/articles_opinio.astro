@@ -1,0 +1,46 @@
+---
+import { isJSDocUnknownType } from "typescript";
+import Card from "../components/cardopinion.astro";
+import Layout from "../components/Layout.astro";
+import Heading from "../components/section-heading.astro";
+
+const articles = await Astro.glob("./articles_opinio/*.md");
+articles.reverse();
+---
+
+<Layout pageTitle="Noticies">
+	<div class="heading-container">
+		<Heading nom="Notícies" />
+	</div>
+
+	<div class="Cards">
+		{
+			articles.map((article) => (
+				<Card
+					imatge={article.frontmatter.image}
+					data={article.frontmatter.date}
+                    autor={article.frontmatter.author}
+					titol={article.frontmatter.title}
+					resum_noticia={article.frontmatter.description}
+					link={article.url}
+				/>
+			))
+		}
+	</div>
+
+	<style>
+		.heading-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.Cards {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 30px;
+		}
+	</style>
+</Layout>
