@@ -18,7 +18,7 @@ const { imatge, data, titol, resum_noticia, link } = Astro.props;
     <div class="card-description">
         <h5>{data}</h5>
         <h3>{titol}</h3>
-        <p class="resumNoticia">{resum_noticia}</p>
+        <p>{resum_noticia}</p>
         <a href={link} class="btn-readmore">Llegeix</a>
     </div>
 </div>

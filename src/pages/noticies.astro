@@ -1,5 +1,4 @@
 ---
-import { isJSDocUnknownType } from "typescript";
 import Card from "../components/cardnews.astro";
 import Layout from "../components/Layout.astro";
 import Heading from "../components/section-heading.astro";
@@ -21,7 +20,7 @@ noticies.reverse();
 					data={noticia.frontmatter.date}
 					titol={noticia.frontmatter.title}
 					resum_noticia={noticia.frontmatter.description}
-					link={noticia.url}
+					link={noticia.url!}
 				/>
 			))
 		}
@@ -32,6 +31,8 @@ noticies.reverse();
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			margin-top: 24px;
+            margin-bottom: 24px;
 		}
 
 		.Cards {

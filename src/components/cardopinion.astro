@@ -18,9 +18,9 @@ const { imatge, data, autor, titol, resum_article, link } = Astro.props;
 
     <div class="card-description">
         <h5>{data}</h5>
-        <h5>{autor}</h5>
         <h3>{titol}</h3>
         <p>{resum_article}</p>
+        <h5 class="autor">{autor}</h5>
         <a href={link} class="btn-readmore">Llegeix</a>
     </div>
 </div>
@@ -57,12 +57,11 @@ const { imatge, data, autor, titol, resum_article, link } = Astro.props;
 
     .card-description h3 {
         color: var(--colorJunts);
+        text-align: left;
     }
 
-    .data {
-        font-size: 13px;
-        color: var(--colorJuntsLila);
-        font-family: "Roboto", sans-serif;
+    .autor {
+        text-align: right;
     }
 
     /* Button Read more */

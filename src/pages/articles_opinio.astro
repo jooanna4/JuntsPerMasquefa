@@ -1,5 +1,4 @@
 ---
-import { isJSDocUnknownType } from "typescript";
 import Card from "../components/cardopinion.astro";
 import Layout from "../components/Layout.astro";
 import Heading from "../components/section-heading.astro";
@@ -8,9 +7,9 @@ const articles = await Astro.glob("./articles_opinio/*.md");
 articles.reverse();
 ---
 
-<Layout pageTitle="Noticies">
+<Layout pageTitle="Articles d'opinió">
 	<div class="heading-container">
-		<Heading nom="Notícies" />
+		<Heading nom="Articles d'opinió" />
 	</div>
 
 	<div class="Cards">
@@ -21,8 +20,8 @@ articles.reverse();
 					data={article.frontmatter.date}
                     autor={article.frontmatter.author}
 					titol={article.frontmatter.title}
-					resum_noticia={article.frontmatter.description}
-					link={article.url}
+					resum_article={article.frontmatter.description}
+					link={article.url!}
 				/>
 			))
 		}
@@ -33,6 +32,8 @@ articles.reverse();
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			margin-top: 24px;
+            margin-bottom: 24px;
 		}
 
 		.Cards {
