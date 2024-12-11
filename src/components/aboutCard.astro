@@ -1,0 +1,91 @@
+---
+interface Props {
+    nom: string;
+    imatge: string;
+    num_llista: number;
+}
+
+const { nom, imatge, num_llista} = Astro.props;
+---
+
+<div class="regidor_card">
+    <img class="Imatge_regidor" src={imatge} alt="Foto del regidor/a">
+    <div class="num_regi">
+        <p>0{num_llista}</p>
+    </div>
+    <div class="nom_regi">
+        <p>{nom}</p>
+    </div>
+</div>
+
+<style>
+    .regidor_card {
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(0, 214, 194, 0.00) 0%, rgba(0, 214, 194, 0.28) 76.77%, rgba(0, 214, 194, 0.28) 100%);
+        box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease;
+    }
+    
+    .Imatge_regidor {
+        width: 300px;
+        height: 300px;
+        padding: 0;
+    }
+
+    .regidor_card :hover {
+        cursor: pointer;
+    }
+
+    .num_regi {
+        display: flex;
+        padding: 8px 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        background: var(--COLOR-JUNTS, #00D6C2);
+    }
+
+    .num_regi p {
+        margin: 0;
+        padding: 0;
+        flex: 1 0 0;
+        align-items: flex-start;
+        color: #000;
+
+        /* h4 */
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .nom_regi {
+        display: flex;
+        padding: 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+    }
+
+    .nom_regi p {
+        margin: 0;
+        flex: 1 0 0;
+        color: #000;
+        text-align: center;
+
+        /* h3 */
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+</style>

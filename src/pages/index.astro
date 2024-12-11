@@ -1,0 +1,130 @@
+---
+import Card from "../components/cardnews.astro";
+import Layout from "../components/Layout.astro";
+import Heading from "../components/section-heading.astro";
+import Regidor from "../components/aboutCard.astro";
+
+const noticies = await Astro.glob("./noticies/*.md");
+noticies.reverse();
+const ultimes3Noticies = noticies.slice(0, 3);
+---
+
+<Layout pageTitle="Inici">
+    <div class="foto_presentacio">
+        <h1>JUNTS PER MASQUEFA</h1>
+        <h2>Pel teu futur</h2>
+    </div>
+    <main>
+        <div class="heading-container">
+            <a href="/noticies"> <Heading nom="Notícies" /> </a>
+        </div>
+        
+        <section class="Cards">
+            {
+                ultimes3Noticies.map((noticia) => (
+                    <Card
+                        imatge={noticia.frontmatter.image}
+                        data={noticia.frontmatter.date}
+                        titol={noticia.frontmatter.title}
+                        resum_noticia={noticia.frontmatter.description}
+                        link={noticia.url!}
+                    />
+                ))
+            }
+        </section>
+
+        <div class="heading-container">
+            <a href="/noticies"> <Heading nom="Regidors" /> </a>
+        </div>
+        <section class="Regidors">
+            <Regidor
+                nom="Xavier Boquete i Saiz"
+                imatge="../../public/Xavier_Boquete_Saiz.png"
+                num_llista={1}
+            />
+            <Regidor
+                nom="Elena Fernández Fernández"
+                imatge="../../public/Elena_Fernandez_Fernandez.png"
+                num_llista={2}
+            />
+            <Regidor
+                nom="Enrique Gómez Milan"
+                imatge="../../public/Enrique_Gomez_Milan.png"
+                num_llista={3}
+            />
+            <Regidor
+                nom = "Joana Bruguera Alegre"
+                imatge="../../public/Joana_Bruguera_Alegre.png"
+                num_llista={4}
+            />
+            <Regidor
+                nom="Carles Mernissi i Coarasa"
+                imatge="../../public/Carles_Mernissi_Coarasa.png"
+                num_llista={5}
+            />
+        </section>
+
+    </main>
+
+    <style>
+        .foto_presentacio {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            background: url("/foto-principal.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+            color: var(--colorBlanc);
+            margin-left: -60px;
+            margin-right: -60px;
+            margin-top: -20px;
+        }
+
+        .foto_presentacio h1 {
+            padding: 8px;
+            background: var(--colorJunts);
+            border-radius: 8px;
+            margin: 0;
+            margin-top: 400px;
+            margin-bottom: 0px;
+            font-size: 64px;
+            font-weight: bold;
+            text-align: center;
+            color: var(--colorBlanc);
+        }
+
+        .foto_presentacio h2 {
+            background: var(--colorJuntsLila);
+            border-radius: 8px;
+            padding: 0 24px;
+        }
+
+        .heading-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .Cards {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center; /* Alinear elementos al principio */
+            flex-wrap: wrap; /* Impedir que los elementos se envuelvan */
+            gap: 30px;
+        }
+
+        .Regidors {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+    </style>
+</Layout>

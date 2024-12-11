@@ -1,0 +1,46 @@
+---
+import Card from "../components/cardnews.astro";
+import Layout from "../components/Layout.astro";
+import Heading from "../components/section-heading.astro";
+
+const noticies = await Astro.glob("./noticies/*.md");
+noticies.reverse();
+---
+
+<Layout pageTitle="Noticies">
+	<div class="heading-container">
+		<Heading nom="Notícies" />
+	</div>
+
+	<div class="Cards">
+		{
+			noticies.map((noticia) => (
+				<Card
+					imatge={noticia.frontmatter.image}
+					data={noticia.frontmatter.date}
+					titol={noticia.frontmatter.title}
+					resum_noticia={noticia.frontmatter.description}
+					link={noticia.url!}
+				/>
+			))
+		}
+	</div>
+
+	<style>
+		.heading-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 24px;
+            margin-bottom: 24px;
+		}
+
+		.Cards {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 30px;
+		}
+	</style>
+</Layout>
